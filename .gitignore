@@ -6,3 +6,6 @@ CHANGELOG.md
 .venv
 .env
 .pylintrc
+
+# Ignore SQL files
+schema.db
