@@ -1,0 +1,11 @@
+.vscode/
+CHANGELOG.md
+# Ignore python files
+**/__pycache__
+.pytest_cache
+.venv
+.env
+.pylintrc
+
+# Ignore SQL files
+schema.db
