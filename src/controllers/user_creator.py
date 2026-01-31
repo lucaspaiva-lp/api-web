@@ -14,7 +14,7 @@ class UserCreator:
         if (not select_users or len(select_users) == 0):
             return
         
-        raise Exception("Signed User!")
+        raise Exception("User is not registered!")
     
     def __create_new_user(self, name: str, age: int, height: float) -> None:
         #Others Activates necessary (optional)
@@ -24,5 +24,5 @@ class UserCreator:
         return {
             "type": "Users",
             "count": 1,
-            "message": "Signed user!"
+            "message": "User is not registered!"
         }
