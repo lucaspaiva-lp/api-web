@@ -1,5 +1,5 @@
 .vscode/
-CHANGELOG.md
+
 # Ignore python files
 **/__pycache__
 .pytest_cache

@@ -1,72 +1,77 @@
+
 # System Scope
 
 ## 1. Purpose
 
-This document defines the functional scope of  **API_Web** , establishing what is included and excluded from the system’s responsibilities.
+This document defines the functional and technical scope of API_Web.
 
-It serves as the authoritative reference for feature inclusion during development.
+It establishes clear boundaries for what the system is responsible for and prevents uncontrolled feature expansion.
 
 ---
 
-## 2. In-Scope
+## 2. In Scope
 
 The system is responsible for:
 
-* Receiving and validating HTTP client requests via Flask routes
-* Exposing endpoints through Flask Blueprints (e.g., `/user`)
-* Returning deterministic JSON responses for defined requests
-* Initial setup and persistence of SQLite database (`schema.db`)
-* Providing a structure for future business rules and domain logic
+- Exposing HTTP endpoints via a backend API
+- Handling basic request and response flows
+- Managing user-related data
+- Interacting with a relational database
+- Applying automated tests to persistence logic
+- Enforcing architectural separation of concerns
 
 ---
 
-## 3. Out-of-Scope
+## 3. Out of Scope
 
-The system is **not** responsible for:
+The system explicitly does **not** handle:
 
-* User interface rendering beyond JSON responses
-* Authentication, authorization, or security workflows
-* Complex data persistence (currently SQLite only, no production DB)
-* External system orchestration beyond defined API endpoints
-* Reporting, analytics, or auditing features
+- Frontend rendering or UI concerns
+- Authentication or authorization
+- Advanced validation or complex business rules (for now)
+- Distributed systems or messaging
+- Performance optimization or scalability tuning
+- Production deployment concerns
 
 ---
 
 ## 4. Supported Use Cases
 
-The system supports the following interactions:
+At its current stage, the system supports:
 
-* A client submits a valid request to `/user` and receives a success response
-* A client submits invalid or incomplete data and receives a validation error
-* A client requests an unsupported operation and receives a defined error response
-* Integration via documented API interfaces using Postman or other tools
+- Creating user records
+- Querying user data by defined criteria
+- Validating repository behavior through tests
+- Exploring controlled database interactions
+
+Future use cases will be added incrementally.
 
 ---
 
 ## 5. Assumptions
 
-The system operates under the following assumptions:
+The system assumes that:
 
-* Clients send requests in the documented JSON format
-* SQLite database is available and initialized correctly
-* The system is executed in a controlled environment (local dev, Docker, or VM)
-* Input data adheres to simple domain constraints (e.g., user age, height)
+- Requests follow documented formats
+- The database schema is under developer control
+- The application runs in a local or controlled environment
+- Data consistency is managed at the application level
 
 ---
 
 ## 6. Constraints
 
-The system is subject to the following constraints:
+The system must:
 
-* Must operate within a stateless, minimal prototype context
-* Must follow Python coding and architectural standards
-* SQLite database is for local development only
-* Future scaling and production considerations (PostgreSQL, services) are planned but not implemented
+- Maintain a small and understandable scope
+- Avoid hidden side effects
+- Keep persistence explicit and predictable
+- Favor clarity over premature optimization
 
 ---
 
 ## 7. Scope Governance
 
-* Any functionality not explicitly described in this document is considered out of scope
-* Changes to scope must be reviewed and documented before implementation
-* The initial version is focused on  **structure, routing, and DB setup** , not full business logic
+Any functionality not explicitly listed in this document is considered out of scope.
+
+Changes to scope must be deliberate and documented before implementation.
