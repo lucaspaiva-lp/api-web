@@ -1,9 +1,9 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-class DbCoonectionHandle:
+class DbConnectionHandler:
     def __init__(self):
-        self.__connection_string = "sqlite:///schema.db"
+        self.__connection_string = "sqlite:///src/database/schema.db"
         self.__engine = self.__create_database_engine()
         self.session = None
         
@@ -12,7 +12,7 @@ class DbCoonectionHandle:
         return engine
     
     def __enter__(self):
-        session_make = sessionmaker()
+        session_make = sessionmaker(bind=self.__engine)
         self.session = session_make()
         return self
     
