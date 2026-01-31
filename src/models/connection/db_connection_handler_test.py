@@ -1,7 +1,7 @@
 import pytest
 from .db_connection_handler import DbConnectionHandler
 
-@pytest.mark.skip(reason="Integration with DB")
+#@pytest.mark.skip(reason="Integration with DB")
 def test_db_connection_handler():
     db_conn_handler = DbConnectionHandler()
     
